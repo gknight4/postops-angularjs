@@ -3,7 +3,7 @@ System.config({
   transpiler: "traceur",
   paths: {
     "app/*": "src/*.js",
-    "users/*": "src/users/*.js",
+//    "users/*": "src/users/*.js",
     "material-start/*": "src/*.js",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
