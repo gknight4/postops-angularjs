@@ -6,13 +6,15 @@ import 'angular-aria';
 import 'angular-material';
 
 import AppController from 'src/AppController';
-import PoComponent from 'src/PoComponent' ;
+import PoComponent from 'src/components/PoComponent' ;
 import MyAutoComplete from 'src/components/MyAutoCompleteComponent' ;
 import HttpHeaders from 'src/components/HeadersComponent' ;
 import Blank from 'src/components/BlankComponent' ;
+import HttpService from 'src/services/HttpService'
+import Alert from 'src/components/AlertComponent' ;
 //import Users from 'src/users/Users';
 
-export default angular.module( 'starter-app', [ 'ngMaterial', ] ) // Users.name 
+export default angular.module( 'starter-app', [ 'ngMaterial' ] ) // Users.name 
   .config(($mdIconProvider, $mdThemingProvider) => {
     // Register the user `avatar` icons
     $mdIconProvider
@@ -27,7 +29,7 @@ export default angular.module( 'starter-app', [ 'ngMaterial', ] ) // Users.name
 //       .icon("phone", "./assets/svg/phone.svg", 24);
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('brown')
+      .primaryPalette('blue')
       .accentPalette('red');
   })
   .controller('AppController', AppController)
@@ -37,6 +39,7 @@ export default angular.module( 'starter-app', [ 'ngMaterial', ] ) // Users.name
 //   .component(HttpHeaders.name, HttpHeaders.config)
 //   .component(HttpHeaders.name, HttpHeaders.config)
 //   .component(HttpHeaders.name, HttpHeaders.config)
-  .component(Blank.name, Blank.config)
+  .component(Alert.name, Alert.config)
+  .service(HttpService.name, HttpService.config)
   
   ;

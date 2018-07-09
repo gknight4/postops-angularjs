@@ -17,7 +17,7 @@ export default {
 `
   <div ng-repeat="head in $ctrl.httpheaders">
     <my-auto-complete
-        placehold="$ctrl.placeHolder" suggestions="$ctrl.suggestions" returnvalue="$ctrl.fakeHeader"
+        placehold="$ctrl.placeHolder" suggestions="$ctrl.suggestions" returnvalue="$ctrl.fakeHeader" selecteditem="head"
       ></my-auto-complete>
   </div>
 `,
