@@ -1,0 +1,39 @@
+<md-dialog area-label="login">
+  <form ng-cloak >
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Login</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+      <div>
+        <md-input-container>
+          <label>Email</label>
+          <input ng-model="useremail">
+        </md-input-container>
+      </div>
+      <div>
+        <md-button class="md-raised md-primary" ng-click="handlechange('sendlogin')">Send</md-button>
+      </div>
+  </form>
+</md-dialog>
+
+<!--
+input email
+input password
+check show password
+check remember me
+button send
+link forgot password
+link new here register
+
+input email
+input password
+check show password
+button send
+link already joined login
+-->
+

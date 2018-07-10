@@ -1,0 +1,76 @@
+  <div>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h1 flex md-truncate>PostOps</h1>
+        <md-button ng-click="loginout($event)">
+          <md-icon ng-show="!$ctrl.loggedIn" md-svg-icon="login"></md-icon>
+          <md-icon ng-show="$ctrl.loggedIn" md-svg-icon="logout"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-select ng-model="$ctrl.method" placeholder="Method" class="md-no-underline">
+      <md-option value="GET">GET</md-option>
+      <md-option value="POST">POST</md-option>
+      <md-option value="PUT">PUT</md-option>
+      <md-option value="PATCH">PATCH</md-option>
+      <md-option value="DELETE">DELETE</md-option>
+    </md-select>
+  </div>
+<my-auto-complete
+    placehold="Url" suggestions="$ctrl.suggs.urls" selecteditem="$ctrl.urls[0]" acid="'ur0'"
+  ></my-auto-complete>
+  
+<h3>Headers</h3> 
+  <div ng-repeat="head in $ctrl.headers track by $index">
+    <my-auto-complete
+        placehold="Header" suggestions="$ctrl.suggs.headers" returnvalue="$ctrl.fakeHeader" selecteditem="head" acid="'hd' + $index"
+      ></my-auto-complete>
+  </div>
+<h3>Body</h3>  
+    <md-select ng-model="$ctrl.bodytype" placeholder="Body Type" class="md-no-underline">
+      <md-option value="Form">Form</md-option>
+      <md-option value="Json">Json</md-option>
+      <md-option value="Raw">Raw</md-option>
+    </md-select>
+    
+<div ng-show="$ctrl.bodytype === 'Form'">
+  <div ng-repeat="form in $ctrl.forms track by $index">
+    <my-auto-complete
+        placehold="KeyValue" suggestions="$ctrl.suggs.forms" returnvalue="$ctrl.fakeHeader" selecteditem="form" acid="'fm' + $index"
+      ></my-auto-complete>
+  </div>
+</div>
+
+<div ng-show="$ctrl.bodytype === 'Json'">
+  <div ng-repeat="json in $ctrl.jsons track by $index">
+    <my-auto-complete
+        placehold="KeyValue" suggestions="$ctrl.suggs.jsons" returnvalue="$ctrl.fakeHeader" selecteditem="json" acid="'js' + $index"
+      ></my-auto-complete>
+  </div>
+</div>
+<div ng-show="$ctrl.bodytype === 'Raw'">
+  <md-input-container>
+    <label>Raw Body</label>
+    <textarea name="rawbody" ng-model="$ctrl.raw"></textarea>
+  </md-input-container>
+</div>
+<div>
+  <md-button class="md-raised md-primary" ng-click="sendRequest()">Send</md-button>
+  <md-checkbox ng-model="$ctrl.useproxy" aria-label="Use Proxy">
+    Use Proxy
+  </md-checkbox>      
+
+</div>
+<div>
+<h1>Response</h1>
+status: {{$ctrl.respStatus}}
+<h3>Headers</h3>
+  <div ng-repeat="head in $ctrl.respHeaders track by $index">
+  {{head}}
+  </div>
+
+<h3>Body</h3>
+<div>
+{{$ctrl.respBody}}
+</div>
+</div>

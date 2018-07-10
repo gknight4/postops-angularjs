@@ -1,0 +1,109 @@
+<md-dialog area-label="login">
+  <form ng-cloak ng-show="loginmode == 'login'"><!-- ng-if="loginmode == 'login'"-->
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Login</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="handlechange('cancel')">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div style="padding: 20px;">
+
+      <div>
+        <md-input-container>
+          <label>Email</label>
+          <input ng-model="useremail">
+        </md-input-container>
+      </div>
+      <div>
+        <md-input-container>
+          <label>Password</label>
+          <input type={{passwordtype}} ng-model="password">
+        </md-input-container>
+      </div>
+      <div>
+        <md-checkbox ng-model="showpassword" ng-change="handlechange('showpassword')" aria-label="Show Password">
+          Show Password
+        </md-checkbox>      
+      </div>
+      <div>
+        <md-checkbox ng-model="rememberme" aria-label="Remember Me">
+          Remember Me
+        </md-checkbox>      
+      </div>
+      <div>
+        <md-button class="md-raised md-primary" ng-click="handlechange('sendlogin')">Send</md-button>
+      </div>
+      <div>
+      <span class="fauxlink" ng-click="handlechange('forgotpasword')">Forgot Password?</span><br/>
+      New here? <span class="fauxlink" ng-click="handlechange('register')">Register</span>
+      </div>
+      
+    </div>
+  </form>
+
+  
+  <form ng-cloak ng-show="loginmode == 'register'"><!-- ng-if="loginmode == 'register'"-->
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Register</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="handlechange('cancel')">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div style="padding: 20px;">
+
+      <div>
+        <md-input-container>
+          <label>Email</label>
+          <input ng-model="useremail">
+        </md-input-container>
+      </div>
+        <po-alert alert = "regAlertEmail" ></po-alert>
+      <div>
+        <md-input-container>
+          <label>Password</label>
+          <input type={{passwordtype}} ng-model="password">
+        </md-input-container>
+      </div>
+      <div>
+        <md-checkbox ng-model="showpassword" ng-change="handlechange('showpassword')" aria-label="Show Password">
+          Show Password
+        </md-checkbox>      
+      </div>
+      <po-alert alert = "regAlertPassword"></po-alert>
+      <div>
+        <md-button class="md-raised md-primary" ng-click="handlechange('sendregister')">Send</md-button>
+      </div>
+      <div>
+      Already Joined? <span class="fauxlink" ng-click="handlechange('login')">Login</span>
+      </div>
+        <po-alert alert = "regAlertError"></po-alert>
+      <div>
+      
+      </div>
+      
+    </div>
+  </form>
+</md-dialog>
+
+<!--
+input email
+input password
+check show password
+check remember me
+button send
+link forgot password
+link new here register
+
+input email
+input password
+check show password
+button send
+link already joined login
+-->
+
