@@ -10,19 +10,24 @@ http://localhost:8080
 
 Issues:
 
-Test the actual Request / Response action
+
 
 Todo:
-implement the auto-add / remove header fields entry to httpHeaders, 
-then generalize to Form and Json fields
+make deployable
 
 Changelog:
 
+Version: 0.5.1
+
+actually works\
+can generate requests natively, and "proxy" requests\
+correctly saves url / header / json strings\
+
 Version: 0.4.1
 
-Nearly complete, for first go round
-login, logout, register, load strings, save strings, drop down suggestions, all OK, for now
-next step, make the actual request, and show the results
+Nearly complete, for first go round\
+login, logout, register, load strings, save strings, drop down suggestions, all OK, for now\
+next step, make the actual request, and show the results\
 code is there, but untested.
 
 Version: 0.0.1
